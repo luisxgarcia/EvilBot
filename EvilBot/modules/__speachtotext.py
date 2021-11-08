@@ -33,7 +33,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my pm")
+       await event.reply("🚨 Necesita Admin Power.. No puede usar este comando.. Pero puedes usarlo en pm")
        return
 
     start = datetime.now()
@@ -47,7 +47,7 @@ async def _(event):
         )
         if IBM_WATSON_CRED_URL is None or IBM_WATSON_CRED_PASSWORD is None:
             await event.reply(
-                "You need to set the required ENV variables for this module. \nModule stopping"
+                "Debe configurar las variables ENV necesarias para este módulo.\nMódulo deteniéndose"
             )
         else:
             # await event.reply("Starting analysis")
@@ -89,14 +89,14 @@ async def _(event):
             # now, remove the temporary file
             os.remove(required_file_name)
     else:
-        await event.reply("Reply to a voice message, to get the text out of it.")
+        await event.reply("Responde a un mensaje de voz para sacarle el texto.")
 
 
 __help__ = """
 I can convert text to voice and voice to text..
- ❍ /tts <lang code>*:* Reply to any message to get text to speech output
- ❍ /stt*:* Type in reply to a voice message(support english only) to extract text from it.
-*Language Codes*
+ ❍ /tts <idioma>*:* Responda a cualquier mensaje para obtener salida de texto a voz
+ ❍ /stt*:* Escriba la respuesta a un mensaje de voz (solo se admite en inglés) para extraer el texto.
+*idioma*
 `af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
 et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
 id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,
