@@ -88,7 +88,7 @@ buttons = [
     ],
 ]
 HELP_STRINGS = """
-`𝙷𝚎𝚢!... Soy` 🐍 *La Switie #1* [🐍](https://telegra.ph/file/b933257e45782e56a3b9a.png)
+`𝙷𝚎𝚢!... Soy` 🐍 *La Switie #1* [🐍](https://telegra.ph/file/39e0879bfc1a59e41ee88.gif)
 `Da click en los botones para obtener mas informacion`"""
 evil_IMG = "https://telegra.ph/file/5dc8f5c53fb0c39ed983c.jpg"
 DONATE_STRING = """Hey, serias tan amable de donar!
