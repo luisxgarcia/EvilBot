@@ -115,7 +115,7 @@ def send(update, message, keyboard, backup_message):
                 markdown_parser(
                     backup_message + "\nNota: el mensaje actual tiene botones que "
                     "utilizan protocolos de URL que no sean compatibles con"
-                    "Telegram. Actualice".
+                    "Telegram. Actualice."
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_to_message_id=reply,
