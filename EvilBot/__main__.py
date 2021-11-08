@@ -64,7 +64,7 @@ def get_readable_time(seconds: int) -> str:
     ping_time += ":".join(time_list)
     return ping_time
 PM_START_TEXT = """
-`Hola` [👿](https://telegra.ph/file/b1ae67fad00c60d51a5f2.jpg) `Soy` *La Swiftie #1*
+`Hola` [🐍](https://telegra.ph/file/b933257e45782e56a3b9a.png) `Soy` *La Swiftie #1*
 `Estoy aqui para ayudarte a manejar tus grupos!` *📚𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜*   
 """
 buttons = [
@@ -88,7 +88,7 @@ buttons = [
     ],
 ]
 HELP_STRINGS = """
-`𝙷𝚎𝚢!... Soy` 👿 *La Switie #1* [👿](https://telegra.ph/file/a064bd8497a5f6f03b290.mp4)
+`𝙷𝚎𝚢!... Soy` 🐍 *La Switie #1* [🐍](https://telegra.ph/file/b933257e45782e56a3b9a.png)
 `Da click en los botones para obtener mas informacion`"""
 evil_IMG = "https://telegra.ph/file/5dc8f5c53fb0c39ed983c.jpg"
 DONATE_STRING = """Hey, serias tan amable de donar!
