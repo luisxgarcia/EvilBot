@@ -31,7 +31,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("🚨 Need Admin Pewer.. You can't use this command.. But you can use in my pm")
+       await event.reply("🚨 Necesitas Admin Power ... No puedes usar este comando ... Pero puedes usarlo en pm")
        return
 
     input_str = event.pattern_match.group(1)
@@ -44,7 +44,7 @@ async def _(event):
         lan, text = input_str.split("|")
     else:
         await event.reply(
-            "Invalid Syntax\nFormat `/tts lang | text`\nFor eg: `/tts en | hello`"
+            "Sintaxis invalida\nFormato `/tts idioma | text`\nPor ejemplo: `/tts en | hello`"
         )
         return
     text = text.strip()
@@ -54,19 +54,19 @@ async def _(event):
         tts.save("k.mp3")
     except AssertionError:
         await event.reply(
-            "The text is empty.\n"
-            "Nothing left to speak after pre-precessing, "
+            "El texto esta vacio.\n"
+            "No queda nada para hablar después del preprocesamiento, "
             "tokenizing and cleaning."
         )
         return
     except ValueError:
-        await event.reply("Language is not supported.")
+        await event.reply("El idioma no es compatible.")
         return
     except RuntimeError:
-        await event.reply("Error loading the languages dictionary.")
+        await event.reply("Error al cargar el diccionario de idiomas.")
         return
     except gTTSError:
-        await event.reply("Error in Google Text-to-Speech API request !")
+        await event.reply("Error en la solicitud de la API de texto a voz de Google!")
         return
     with open("k.mp3", "r"):
         await tbot.send_file(
