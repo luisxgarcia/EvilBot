@@ -80,7 +80,7 @@ buttons = [
      ],
      [  
         InlineKeyboardButton(text="Soporte", url="https://t.me/EVIL_SUPPORT_CHAT"),
-        InlineKeyboardButton(text="Codigo fuente", url="https://github.com/shrvan42/EvilBot"),
+        InlineKeyboardButton(text="Codigo fuente", url="https://github.com/luisxgarcia/EvilBot"),
     ], 
 
     [
@@ -183,7 +183,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "¡Ya estoy despierta!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "¡Ya estoy despierta!\n<b>No he dormido desde:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
