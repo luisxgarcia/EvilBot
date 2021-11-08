@@ -1031,7 +1031,7 @@ WELC_HELP_TXT = (
     " • `{id}`*:* this represents the user's *id*\n"
     " • `{count}`*:* esto representa el *número de miembro* del usuario.\n"
     " • `{chatname}`*:* esto representa el *nombre de chat actual*.\n"
-    "\nCada variable DEBE estar rodeada por "{}" para ser reemplazada.\n"
+    "\nCada variable DEBE estar rodeada por '{}' para ser reemplazada.\n"
     "Los mensajes de bienvenida también admiten markdown, por lo que puede crear cualquier elemento bold/italic/code/links. "
     "Los botones también son compatibles, por lo que puede hacer que sus bienvenidas se vean increíbles con una buena introducción. "
     "botones.\n"
