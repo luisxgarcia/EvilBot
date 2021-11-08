@@ -92,9 +92,9 @@ HELP_STRINGS = """
 `Da click en los botones para obtener mas informacion`"""
 evil_IMG = "https://telegra.ph/file/5dc8f5c53fb0c39ed983c.jpg"
 DONATE_STRING = """Hey, serias tan amable de donar!
- You can support the project via [Paypal](#) or by contacting @shrvan42 \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+ Puedes apoyar el proyecto a través de [Paypal](#) o contactando a @shrvan42 \
+ El apoyo no siempre es económico! \
+ Aquellos que no puedan brindar apoyo monetario pueden ayudarnos a desarrollar el bot en ."""
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
@@ -111,7 +111,7 @@ for module_name in ALL_MODULES:
     if imported_module.__mod_name__.lower() not in IMPORTED:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
-        raise Exception("Can't have two modules with the same name! Please change one")
+        raise Exception("¡No se pueden tener dos módulos con el mismo nombre! Por favor cambie uno")
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
     # Chats to migrate on chat_migrated events
@@ -144,7 +144,7 @@ def send_help(chat_id, text, keyboard=None):
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
     # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
-    update.effective_message.reply_text("This person edited a message")
+    update.effective_message.reply_text("Esta persona editó un mensaje")
     print(update.effective_message)
 @run_async
 def start(update: Update, context: CallbackContext):
@@ -183,15 +183,15 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "¡Ya estoy despierta!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
         )
 def error_handler(update, context):
-    """Log the error and send a telegram message to notify the developer."""
+    """Registre el error y envíe un mensaje de telegram para notificar al desarrollador."""
     # Log the error before we do anything else, so we can see it even if something breaks.
-    LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
+    LOGGER.error(msg="Excepción al manejar una actualización:", exc_info=context.error)
     # traceback.format_exception returns the usual python message about an exception, but as a
     # list of strings rather than a single string, so we have to join them together.
     tb_list = traceback.format_exception(
@@ -200,7 +200,7 @@ def error_handler(update, context):
     tb = "".join(tb_list)
     # Build the message with some markup and additional information about what happened.
     message = (
-        "An exception was raised while handling an update\n"
+        "Se generó una excepción al manejar una actualización\n"
         "<pre>update = {}</pre>\n\n"
         "<pre>{}</pre>"
     ).format(
