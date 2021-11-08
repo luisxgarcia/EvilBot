@@ -405,7 +405,7 @@ def set_about_me(update: Update, context: CallbackContext):
     if len(info) == 2:
         if len(info[1]) < MAX_MESSAGE_LENGTH // 4:
             sql.set_user_me_info(user_id, info[1])
-            if user_id in [777000, 1087968824, No hay una, usa / setme para establecer una.]:
+            if user_id in [777000, 1087968824, 998104621]:
                 message.reply_text("Aprobado... Información actualizada!")
             elif user_id == bot.id:
                 message.reply_text("¡He actualizado mi información con la que proporcionaste!")
