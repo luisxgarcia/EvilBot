@@ -12,7 +12,15 @@ from EvilBot import *
 
 from EvilBot.events import register
 
-await tbot(functions.channels.GetParticipantRequest(chat, user))
+if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
+    return isinstance(
+        (
+            await tbot(functions.channels.GetParticipantRequest(chat, user))
+        ).participant,
+            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
+        )
+if isinstance(chat, types.InputPeerUser):
+        return True
 
 @register(pattern="^/tts (.*)")
 async def _(event):
