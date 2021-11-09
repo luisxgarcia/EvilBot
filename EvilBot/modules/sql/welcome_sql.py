@@ -10,219 +10,179 @@ DEFAULT_WELCOME = "Hey {first}, how are you?"
 DEFAULT_GOODBYE = "Nice knowing ya!"
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} is here!",  # Discord welcome messages copied
-    "Ready player {first}",
-    "Genos, {first} is here.",
-    "A wild {first} appeared.",
-    "{first} came in like a Lion!",
-    "{first} has joined your party.",
-    "{first} just joined. Can I get a heal?",
-    "{first} just joined the chat - asdgfhak!",
-    "{first} just joined. Everyone, look busy!",
-    "Welcome, {first}. Stay awhile and listen.",
-    "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°)",
-    "Welcome, {first}. We hope you brought pizza.",
-    "Welcome, {first}. Leave your weapons by the door.",
-    "Swoooosh. {first} just landed.",
-    "Brace yourselves. {first} just joined the chat.",
-    "{first} just joined. Hide your bananas.",
-    "{first} just arrived. Seems OP - please nerf.",
-    "{first} just slid into the chat.",
-    "A {first} has spawned in the chat.",
-    "Big {first} showed up!",
-    "Where’s {first}? In the chat!",
-    "{first} hopped into the chat. Kangaroo!!",
-    "{first} just showed up. Hold my beer.",
-    "Challenger approaching! {first} has appeared!",
-    "It's a bird! It's a plane! Nevermind, it's just {first}.",
-    "It's {first}! Praise the sun! \o/",
-    "Never gonna give {first} up. Never gonna let {first} down.",
-    "Ha! {first} has joined! You activated my trap card!",
-    "Hey! Listen! {first} has joined!",
-    "We've been expecting you {first}",
-    "It's dangerous to go alone, take {first}!",
-    "{first} has joined the chat! It's super effective!",
-    "Cheers, love! {first} is here!",
-    "{first} is here, as the prophecy foretold.",
-    "{first} has arrived. Party's over.",
-    "{first} is here to kick butt and chew bubblegum. And {first} is all out of gum.",
-    "Hello. Is it {first} you're looking for?",
-    "{first} has joined. Stay awhile and listen!",
-    "Roses are red, violets are blue, {first} joined this chat with you",
-    "Welcome {first}, Avoid Punches if you can!",
-    "It's a bird! It's a plane! - Nope, its {first}!",
-    "{first} Joined! - Ok.",  # Discord welcome messages end.
-    "All Hail {first}!",
-    "Hi, {first}. Don't lurk, only Villans do that.",
-    "{first} has joined the battle bus.",
-    "A new Challenger enters!",  # Tekken
-    "Ok!",
-    "{first} just fell into the chat!",
-    "Something just fell from the sky! - oh, its {first}.",
-    "{first} Just teleported into the chat!",
-    "Hi, {first}, show me your Hunter License!",  # Hunter Hunter
-    "I'm looking for Garo, oh wait nvm it's {first}.",  # One Punch man s2
-    "Welcome {first}, leaving is not an option!",
-    "Run Forest! ..I mean...{first}.",
-    "{first} do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!",  # One Punch ma
-    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.",  # One Punch ma
-    "Hey, {first}, ever heard the King Engine?",  # One Punch ma
-    "Hey, {first}, empty your pockets.",
-    "Hey, {first}!, are you strong?",
-    "Call the Avengers! - {first} just joined the chat.",
-    "{first} joined. You must construct additional pylons.",
-    "Ermagherd. {first} is here.",
-    "Come for the Snail Racing, Stay for the Chimichangas!",
-    "Who needs Google? You're everything we were searching for.",
-    "This place must have free WiFi, cause I'm feeling a connection.",
-    "Speak friend and enter.",
-    "Welcome you are",
-    "Welcome {first}, your princess is in another castle.",
-    "Hi {first}, welcome to the dark side.",
-    "Hola {first}, beware of people with disaster levels",
-    "Hey {first}, we have the droids you are looking for.",
-    "Hi {first}\nThis isn't a strange place, this is my home, it's the people who are strange.",
-    "Oh, hey {first} what's the password?",
-    "Hey {first}, I know what we're gonna do today",
-    "{first} just joined, be at alert they could be a spy.",
-    "{first} joined the group, read by Mark Zuckerberg, CIA and 35 others.",
-    "Welcome {first}, watch out for falling monkeys.",
-    "Everyone stop what you’re doing, We are now in the presence of {first}.",
-    "Hey {first}, do you wanna know how I got these scars?",
-    "Welcome {first}, drop your weapons and proceed to the spy scanner.",
-    "Stay safe {first}, Keep 3 meters social distances between your messages.",  # Corona memes lmao
-    "Hey {first}, Do you know I once One-punched a meteorite?",
-    "You’re here now {first}, Resistance is futile",
-    "{first} just arrived, the force is strong with this one.",
-    "{first} just joined on president’s orders.",
-    "Hi {first}, is the glass half full or half empty?",
-    "Yipee Kayaye {first} arrived.",
-    "Welcome {first}, if you’re a secret agent press 1, otherwise start a conversation",
-    "{first}, I have a feeling we’re not in Kansas anymore.",
-    "They may take our lives, but they’ll never take our {first}.",
-    "Coast is clear! You can come out guys, it’s just {first}.",
-    "Welcome {first}, pay no attention to that guy lurking.",
-    "Welcome {first}, may the force be with you.",
-    "May the {first} be with you.",
-    "{first} just joined. Hey, where's Perry?",
-    "{first} just joined. Oh, there you are, Perry.",
-    "Ladies and gentlemen, I give you ...  {first}.",
-    "Behold my new evil scheme, the {first}-Inator.",
-    "Ah, {first} the Platypus, you're just in time... to be trapped.",
-    "{first} just arrived. Diable Jamble!",  # One Piece Sanji
-    "{first} just arrived. Aschente!",  # No Game No Life
-    "{first} say Aschente to swear by the pledges.",  # No Game No Life
-    "{first} just joined. El Psy congroo!",  # Steins Gate
-    "Irasshaimase {first}!",  # weeabo shit
-    "Hi {first}, what is 1000-7?",  # tokyo ghoul
-    "Come. I don't want to destroy this place",  # hunter x hunter
-    "I... am... Whitebeard!...wait..wrong anime.",  # one Piece
-    "Hey {first}...have you ever heard these words?",  # BNHA
-    "Can't a guy get a little sleep around here?",  # Kamina Falls – Gurren Lagann
-    "It's time someone put you in your place, {first}.",  # Hellsing
-    "Unit-01's reactivated..",  # Neon Genesis: Evangelion
-    "Prepare for trouble...And make it double",  # Pokemon
-    "Hey {first}, are You Challenging Me?",  # Shaggy
-    "Oh? You're Approaching Me?",  # jojo
-    "Ho… mukatta kuruno ka?",  # jojo jap ver
-    "I can't beat the shit out of you without getting closer",  # jojo
-    "Ho ho! Then come as close as you'd like.",  # jojo
-    "Hoho! Dewa juubun chikazukanai youi",  # jojo jap ver
-    "Guess who survived his time in Hell, {first}.",  # jojo
-    "How many loaves of bread have you eaten in your lifetime?",  # jojo
-    "What did you say? Depending on your answer, I may have to kick your ass!",  # jojo
-    "Oh? You're approaching me? Instead of running away, you come right to me? Even though your grandfather, Joseph, told you the secret of The World, like an exam student scrambling to finish the problems on an exam until the last moments before the chime?",  # jojo
-    "Rerorerorerorerorero.",  # jojo
-    "{first} just warped into the group!",
-    "I..it's..it's just {first}.",
-    "Sugoi, Dekai. {first} Joined!",
-    "{first}, do you know gods of death love apples?",  # Death Note owo
-    "I'll take a potato chip.... and eat it",  # Death Note owo
-    "Oshiete oshiete yo sono shikumi wo!",  # Tokyo Ghoul
-    "Kaizoku ou ni...nvm wrong anime.",  # op
-    "{first} just joined! Gear.....second!",  # Op
-    "Omae wa mou....shindeiru",
-    "Hey {first}, the leaf village lotus blooms twice!",  # Naruto stuff begins from here
-    "{first} Joined! Omote renge!",
-    "{first}! I, Madara! declare you the strongest",
-    "{first}, this time I'll lend you my power. ",  # Kyuubi to naruto
-    "{first}, welcome to the hidden leaf village!",  # Naruto thingies end here
-    "In the jungle, you must wait...until the dice read five or eight.",  # Jumanji stuff
-    "Dr.{first} Famed archeologist and international explorer,\nWelcome to Jumanji!\nJumanji's Fate is up to you now.",
-    "{first}, this will not be an easy mission - monkeys slow the expedition.",  # End of Jumanji stuff
-    "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot.", #V for Vendetta
-    "The only verdict is vengeance; a vendetta, held as a votive not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.", #V for Vendetta
-    "Behind {first} there is more than just flesh. Beneath this user there is an idea... and ideas are bulletproof.", #V for Vendetta
-    "Love your rage, not your cage.", #V for Vendetta
-    "Get your stinking paws off me, you damned dirty ape!", #Planet of the apes
-    "Elementary, my dear {first}.",
-    "I'm back - {first}.",
-    "Bond. {first} Bond.",
-    "Come with me if you want to live",
+    "¡{first} ya está aquí!", # mensajes de bienvenida de Discord copiados
+    "Jugador listo {first}",
+    "Genos, {first} está aquí",
+    "Apareció un {first} salvaje",
+    "¡{first} entró como un león!",
+    "{first} se ha unido al grupo",
+    "{first} acaba de unirse. ¿Puedo curarme?",
+    "{first} acaba de unirse al chat - ¡asdgfhak!",
+    "{first} acaba de unirse. ¡Todos, parezcan ocupados!",
+    "Bienvenido, {first}. Quédate un rato y escucha",
+    "Bienvenido, {first}. Te estábamos esperando (͡ ° ͜ʖ ͡ °)",
+    "Bienvenido, {first}. Esperamos que hayas traído pizza",
+    "Bienvenido, {first}. Deja tus armas junto a la puerta",
+    "Swoooosh. {first} acaba de aterrizar",
+    "Prepárense. {first} acaba de unirse al chat",
+    "{first} acaba de unirse. Esconde tus plátanos",
+    "{first} acaba de entrar en el chat",
+    "Se ha generado una {first} en el chat",
+    "¡Big {first} apareció!",
+    "¿Dónde está {first}? ¡En el chat!",
+    "{first} saltó al chat. ¡¡Canguro!!",
+    "{first} acaba de aparecer. Me quitare la ropa",
+    "¡Se acerca un retador! ¡{first} ha aparecido!",
+    "¡Es un pájaro! ¡Es un avión! No importa, es solo {first}",
+    "¡Es {first}! ¡Alabado sea el sol! \ O /",
+    "Nunca me rendiré {first}. Nunca decepcionaré a {first}.",
+    "¡Ja! ¡{first} se ha unido! ¡Activaste mi modo Bad Blood!",
+    "¡Oye! ¡Escucha! ¡{first} se ha unido!",
+    "Te estábamos esperando {first}",
+    "¡{first} se ha unido al chat! ¡Es muy eficaz!",
+    "¡Salud, amor! ¡{first} está aquí!",
+    "{first} está aquí, como predijo la profecía.",
+    "{first} ha llegado. Se acabó la fiesta",
+    "{first} está aquí para patear traseros y masticar chicle. Y {first} no tiene chicle",
+    "Hola. ¿Es {first} lo que estás buscando?",
+    "{first} se ha unido. ¡Quédate un rato y escucha!",
+    "Las rosas son rojas, las violetas son azules, {first} se unió a este chat conmigo",
+    "¡Bienvenido {first}, evita los puñetazos si puedes!",
+    "¡Es un pájaro! ¡Es un avión! - ¡No, es {primero}!",
+    "{first} ¡Únete!"
+    "Ok.", # Finalizan los mensajes de bienvenida de Discord.
+    "Hola, {primero}. No te quedes al acecho, solo los villanos hacen eso",
+    "{first} se ha unido al autobús de batalla",
+    "¡Entra un nuevo Challenger!", # Tekken
+    "¡OK!",
+    "¡{first} acaba de entrar en el chat!",
+    "¡Algo acaba de caer del cielo! - oh, es {first}.",
+    "{first} ¡Recién teletransportado al chat!",
+    "¡Hola, {first}, muéstrame tu licencia de cazador!", # Hunter Hunter
+    "¡Bienvenido {first}, irse no es una opción!",
+    "¡Ejecuta el bosque! ... quiero decir ... {first}.",
+    "¡{first} haz 100 flexiones, 100 abdominales, 100 sentadillas y 10 km corriendo TODOS LOS DÍAS!", # One Punch ma
+    "¿Eh?\n¿Alguien con un nivel de desastre acaba de unirse?\nOh, espera, es solo {first}", # One Punch ma
+    "Oye, {first}, vacía tus bolsillos",
+    "¡Oye, {first} !, ¿eres fuerte?",
+    "¡Llamen a los Vengadores! - {first} acaba de unirse al chat",
+    "{first} se ha unido. Debes construir torres adicionales.",
+    "¡Ven por la carrera de caracoles, quédate por las chimichangas!",
+    "¿Quién necesita Google? Eres todo lo que estábamos buscando",
+    "Este lugar debe tener WiFi gratis, porque siento una conexión",
+    "Habla amigo y entra",
+    "Bienvenido, eres?",
+    "Bienvenido {first}, tu princesa está en otro castillo.",
+    "Hola {first}, bienvenido al lado oscuro",
+    "Hola {first}, ten cuidado con las personas con niveles de desastre",
+    "Hola, {first}\nEste no es un lugar extraño, esta es mi casa, son las personas las que son extrañas",
+    "Oh, hey {first} ¿cuál es la contraseña?",
+    "Oye, {first}, sé lo que haremos hoy",
+    "{first} acaba de unirse, esté alerta de que podrían ser un espía",
+    "{first} se unió al grupo, leído por Mark Zuckerberg, CIA y otras 35 personas",
+    "Bienvenido {first}, cuidado con los monos que caen",
+    "Todos dejen lo que están haciendo. Ahora estamos en presencia de {first}",
+    "Oye {first}, ¿quieres saber cómo conseguí merch gratis?",
+    "Bienvenido {first}, suelta tus armas y procede al escáner espía",
+    "Mantente a salvo {first}, mantén una distancia social de 3 metros entre tus mensajes", # Corona memes lmao
+    "Oye, {first}, ¿sabes que una vez golpeé un meteorito con un solo golpe?",
+    "Estás aquí ahora {first}, la resistencia es inútil",
+    "{first} acaba de llegar, la fuerza es fuerte con este",
+    "{first} acaba de unirse por orden del presidente",
+    "Hola, {first}, ¿el vaso está medio lleno o medio vacío?",
+    "Bienvenido {first}, si eres un agente secreto, presiona 1; de lo contrario, inicia una conversación",
+    "¡La costa está despejada! Pueden salir chicos, es solo {first}",
+    "Bienvenido {first}, no le prestes atención a ese tipo que está al acecho",
+    "Bienvenido {first}, que la fuerza te acompañe",
+    "Que {first} esté contigo",
+    "{first} acaba de unirse. Oye, ¿dónde está Perry?",
+    "{first} acaba de unirse. Ah, ahí estás, Perry",
+    "Señoras y señores, les doy ... {first}.",
+    "He aquí mi nuevo plan maligno, el {first}-inador.",
+    "Ah, {first} el ornitorrinco, llegas justo a tiempo ... para que te atrapen",
+    "Ven. No quiero destruir este lugar", # hunter x hunter
+    "Oye, {first} ... ¿alguna vez has escuchado estas palabras?", # BNHA
+    "¿No puede una chica dormir un poco por aquí?", # Kamina Falls - Gurren Lagann
+    "Es hora de que alguien te ponga en tu lugar, {first}", # Hellsing
+    "Prepárate para los problemas ... y haz que se dupliquen", # Pokémon
+    "Adivina quién sobrevivió a su tiempo en el infierno, {first}", # jojo
+    "¿Cuántas hogazas de pan has comido en tu vida?", # Jojo
+    "¿Qué dijiste? Dependiendo de tu respuesta, ¡puede que tenga que patearte el trasero!", # Jojo
+    "¡{first} acaba de entrar en el grupo!",
+    "{first}, ¿sabes que a los dioses de la muerte les encantan las manzanas?", # Death Note owo
+    "¡{first}! ¡Yo, Taylor Swift! Te declaro el más fuerte",
+    "{first}, esta vez te prestaré mi poder", # Kyuubi a Naruto
+    "{first}, ¡bienvenido a la aldea oculta de las hojas!", 
+    "En la jungla, debes esperar... hasta que los dados marquen cinco u ocho", # cosas de Jumanji
+    "Dr. {first} famoso arqueólogo y explorador internacional, \n¡Bienvenido a Jumanji!\nEl destino de Jumanji depende de ti ahora",
+    "{first}, esta no será una misión fácil: los monos ralentizan la expedición", # Fin de las cosas de Jumanji
+    "Recuerda, recuerda, el cinco de noviembre, la traición y el complot de la pólvora. No conozco ninguna razón por la que la Traición de la pólvora deba olvidarse jamás", #V de Vendetta
+    "Detrás de {first} hay algo más que carne. Debajo de este usuario hay una idea ... y las ideas son a prueba de balas", #V de Vendetta
+    "¡Quítame las apestosas patas de encima, maldito simio sucio!", #Planeta de los simios
+    "Ven conmigo si quieres vivir",
 ]
 DEFAULT_GOODBYE_MESSAGES = [
-    "{first} will be missed.",
-    "{first} just went offline.",
-    "{first} has left the lobby.",
-    "{first} has left the clan.",
-    "{first} has left the game.",
-    "{first} has fled the area.",
-    "{first} is out of the running.",
-    "Nice knowing ya, {first}!",
-    "It was a fun time {first}.",
-    "We hope to see you again soon, {first}.",
-    "I donut want to say goodbye, {first}.",
-    "Goodbye {first}! Guess who's gonna miss you :')",
-    "Goodbye {first}! It's gonna be lonely without ya.",
-    "Please don't leave me alone in this place, {first}!",
-    "Good luck finding better shit-posters than us, {first}!",
-    "You know we're gonna miss you {first}. Right? Right? Right?",
-    "Congratulations, {first}! You're officially free of this mess.",
-    "{first}. You were an opponent worth fighting.",
-    "You're leaving, {first}? Yare Yare Daze.",
-    "Bring him the photo",
-    "Go outside!",
-    "Ask again later",
-    "Think for yourself",
-    "Question authority",
-    "You are worshiping a sun god",
-    "Don't leave the house today",
-    "Give up!",
-    "Marry and reproduce",
-    "Stay asleep",
-    "Wake up",
-    "Look to la luna",
-    "Steven lives",
-    "Meet strangers without prejudice",
-    "A hanged man will bring you no luck today",
-    "What do you want to do today?",
-    "You are dark inside",
-    "Have you seen the exit?",
-    "Get a baby pet it will cheer you up.",
-    "Your princess is in another castle.",
-    "You are playing it wrong give me the controller",
-    "Trust good people",
-    "Live to die.",
-    "When life gives you lemons reroll!",
-    "Well, that was worthless",
-    "I fell asleep!",
-    "May your troubles be many",
-    "Your old life lies in ruin",
-    "Always look on the bright side",
-    "It is dangerous to go alone",
-    "You will never be forgiven",
-    "You have nobody to blame but yourself",
-    "Only a sinner",
-    "Use bombs wisely",
-    "Nobody knows the troubles you have seen",
-    "You look fat you should exercise more",
-    "Follow the zebra",
-    "Why so blue?",
-    "The devil in disguise",
-    "Go outside",
-    "Always your head in the clouds",
+    "{first} se perderá.",
+    "{first} acaba de desconectarse",
+    "{first} ha abandonado el vestíbulo",
+    "{first} ha dejado el culto.",
+    "{first} ha abandonado el juego",
+    "{first} ha huido del área",
+    "{first} está fuera de ejecución",
+    "¡Encantado de conocerte, {first}!",
+    "Fue un momento divertido {first}",
+    "Esperamos volver a verte pronto, {first}",
+    "No quiero decir adiós, {first}",
+    "¡Adiós {first}! Adivina quién te va a extrañar: ')",
+    "¡Adiós {first}! Va a ser muy solitario sin ti.",
+    "¡Por favor, no me dejes solo en este lugar, {first}!",
+    "¡Buena suerte encontrando mejores carteles de mierda que nosotros, {first}!",
+    "Sabes que te vamos a extrañar {first}. ¿Verdad? ¿Verdad? ¿Verdad?",
+    "¡Felicitaciones, {first}! Estás oficialmente libre de este lío",
+    "{first}. Eras un oponente que valía la pena pelear.",
+    "Tráele la foto",
+    "¡Salio fuera!",
+    "Pregunta de nuevo más tarde",
+    "Piensa por ti mismo",
+    "Cuestiona a la autoridad",
+    "Estás adorando a un dios del sol",
+    "No salgas de casa hoy",
+    "¡Darse por vencido!",
+    "Casarse y reproducirse",
+    "Permanecer dormido",
+    "Despierta",
+    "Mira a la luna",
+    "Steven vive",
+    "Conoce a extraños sin prejuicios",
+    "Un ahorcado no te traerá suerte hoy",
+    "¿Qué quieres hacer hoy?",
+    "Estás oscuro por dentro",
+    "¿Has visto la salida?",
+    "Consíguete una mascota bebé que te animará",
+    "Tu princesa está en otro castillo",
+    "Lo estás jugando mal dame el mando",
+    "Confía en la gente buena",
+    "Vivir para morir.",
+    "¡Cuando la vida te da limones vuelve a enrollar!",
+    "Bueno, eso fue inútil",
+    "¡Me quedé dormido!",
+    "Que tus problemas sean muchos",
+    "Tu antigua vida está en ruinas",
+    "Siempre mira el lado positivo",
+    "Es peligroso ir solo",
+    "Nunca serás perdonado",
+    "No tienes a nadie a quien culpar más que a ti mismo",
+    "Solo un pecador",
+    "Usa las bombas con prudencia",
+    "Nadie sabe los problemas que has visto",
+    "Te ves gordo, deberías hacer más ejercicio",
+    "Sigue a la cebra",
+    "¿Por qué tan azul?",
+    "El diablo disfrazado",
+    "Salio fuera",
+    "Siempre tu cabeza en las nubes",
 ]
-# Line 111 to 152 are references from https://bindingofisaac.fandom.com/wiki/Fortune_Telling_Machine
+
 
 
 class Welcome(BASE):
