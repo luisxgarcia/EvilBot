@@ -12,7 +12,7 @@ from EvilBot import *
 
 from EvilBot.events import register
 
-
+await tbot(functions.channels.GetParticipantRequest(chat, user))
 
 @register(pattern="^/tts (.*)")
 async def _(event):
