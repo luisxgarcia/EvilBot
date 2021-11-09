@@ -18,7 +18,7 @@ async def is_register_admin(chat, user):
             (
                 await tbot(functions.channels.GetParticipantRequest(chat, user))
             ).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator, types.ChannelParticipantSelf),
+            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator, types.ChannelParticipant),
         )
     if isinstance(chat, types.InputPeerUser):
         return True
@@ -35,7 +35,7 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        event.reply(
+        await event.reply(
             "Sintaxis invalida\nFormato `/tts idioma | text`\nPor ejemplo: `/tts en | hello`"
         )
         return
@@ -45,20 +45,20 @@ async def _(event):
         tts = gTTS(text, tld="com", lang=lan)
         tts.save("k.mp3")
     except AssertionError:
-        event.reply(
+        await event.reply(
             "El texto esta vacio.\n"
             "No queda nada para hablar después del preprocesamiento, "
             "tokenizing and cleaning."
         )
         return
     except ValueError:
-        event.reply("El idioma no es compatible.")
+        await event.reply("El idioma no es compatible.")
         return
     except RuntimeError:
-        event.reply("Error al cargar el diccionario de idiomas.")
+        await event.reply("Error al cargar el diccionario de idiomas.")
         return
     except gTTSError:
-        event.reply("Error en la solicitud de la API de texto a voz de Google!")
+        await event.reply("Error en la solicitud de la API de texto a voz de Google!")
         return
     with open("k.mp3", "r"):
         await tbot.send_file(
