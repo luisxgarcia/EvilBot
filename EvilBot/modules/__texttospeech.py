@@ -35,7 +35,7 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        await event.reply(
+        event.reply(
             "Sintaxis invalida\nFormato `/tts idioma | text`\nPor ejemplo: `/tts en | hello`"
         )
         return
@@ -45,20 +45,20 @@ async def _(event):
         tts = gTTS(text, tld="com", lang=lan)
         tts.save("k.mp3")
     except AssertionError:
-        await event.reply(
+        event.reply(
             "El texto esta vacio.\n"
             "No queda nada para hablar después del preprocesamiento, "
             "tokenizing and cleaning."
         )
         return
     except ValueError:
-        await event.reply("El idioma no es compatible.")
+        event.reply("El idioma no es compatible.")
         return
     except RuntimeError:
-        await event.reply("Error al cargar el diccionario de idiomas.")
+        event.reply("Error al cargar el diccionario de idiomas.")
         return
     except gTTSError:
-        await event.reply("Error en la solicitud de la API de texto a voz de Google!")
+        event.reply("Error en la solicitud de la API de texto a voz de Google!")
         return
     with open("k.mp3", "r"):
         await tbot.send_file(
