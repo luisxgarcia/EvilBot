@@ -17,8 +17,7 @@ async def is_register_admin(chat, user):
         return isinstance(
             (
                 await tbot(functions.channels.GetParticipantRequest(chat, user))
-            ).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator, types.ChannelParticipant),
+            ).participant
         )
     if isinstance(chat, types.InputPeerUser):
         return True
