@@ -30,7 +30,8 @@ async def _(event):
     if event.fwd_from:
         return
     if event.is_group:
-        
+       return
+
     input_str = event.pattern_match.group(1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
