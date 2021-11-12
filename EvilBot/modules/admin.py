@@ -668,7 +668,7 @@ y Se abre automáticamente a las 6 am (IST) para prevenir el spam nocturno.
 ⚠️ `Leer desde arriba`
 """
 
-__mod_name__ = "Admin"
+__mod_name__ = "Administradores"
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
 
