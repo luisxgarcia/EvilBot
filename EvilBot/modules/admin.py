@@ -636,7 +636,6 @@ def adminlist(update, context):
         msg.edit_text(text, parse_mode=ParseMode.HTML)
     except BadRequest:  # if original message is deleted
         return
-    )
 
 
 __help__ = """
