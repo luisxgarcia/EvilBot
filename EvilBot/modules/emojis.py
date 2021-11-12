@@ -235,6 +235,7 @@ earth_ani = [
 @user_admin
 @run_async
 def blockanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('⬜') 
     for x in range(EDIT_TIMES):
         msg.edit_text(block_chain[x%18])
@@ -247,6 +248,7 @@ def blockanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def clockanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message
     reply_text = msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
     for x in range(EDIT_TIMES):
@@ -259,6 +261,7 @@ def clockanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def earthanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message
     reply_text = msg.reply_to_message.reply_text if msg.reply_to_message else msg.reply_text
     for x in range(EDIT_TIMES):
@@ -272,6 +275,7 @@ def earthanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def moonanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('🌚') 
     for x in range(EDIT_TIMES):
         msg.edit_text(moon_ani[x%32])
@@ -289,6 +293,7 @@ def moonanimation(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def bombs(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('💣') 
     for x in range(EDIT_TIMES):
         msg.edit_text(bomb_ettu[x%9])
@@ -308,6 +313,7 @@ def bombs(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def hack(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('Target selected') 
     for x in range(EDIT_TIMES):
         msg.edit_text(hack_you[x%5])
@@ -324,6 +330,7 @@ def hack(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def love(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('❣️') 
     for x in range(EDIT_TIMES):
         msg.edit_text(love_siren[x%5])
@@ -336,6 +343,7 @@ def love(bot: Bot, update: Update, context: CallbackContext) -> str:
 @user_admin
 @run_async
 def kill(bot: Bot, update: Update, context: CallbackContext) -> str:
+    bot = context.bot
     msg = update.effective_message.reply_text('🔫') 
     for x in range(EDIT_TIMES):
         msg.edit_text(kill_you[x%12])
