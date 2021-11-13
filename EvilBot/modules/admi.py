@@ -337,7 +337,7 @@ def invite(update: Update, context: CallbackContext):
 @run_async
 @connection_status
 def adminlist(update: Update, context: CallbackContext):
-        chat = update.effective_chat  # type: Optional[Chat]
+    chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     args = context.args
     bot = context.bot
@@ -465,7 +465,7 @@ __help__ = """
  • `/reload`*:* Forzar la actualización de la lista de administradores
 """
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"],
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["staff", "admins"],
                                               adminlist)
 
 PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group)
@@ -493,7 +493,7 @@ dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "Admin"
-__command_list__ = ["adminlist", "admins", "invitelink", "promote", "demote", "reload"]
+__command_list__ = ["staff", "admins", "invitelink", "promote", "demote", "reload"]
 __handlers__ = [
     ADMINLIST_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
     PROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, ADMIN_REFRESH_HANDLER
