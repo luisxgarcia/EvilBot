@@ -2,24 +2,10 @@ import html
 
 from EvilBot import DRAGONS, dispatcher
 from EvilBot.modules.disable import DisableAbleCommandHandler
-from EvilBot.modules.helper_funcs.chat_status import (
-    bot_admin,
-    can_pin,
-    can_promote,
-    connection_status,
-    user_admin,
-    ADMIN_CACHE
-)
-from EvilBot.helper_extra.admin_rights import (
-    user_can_pin,
-    user_can_promote,
-    user_can_changeinfo
-)
+from EvilBot.modules.helper_funcs.chat_status import bot_admin, can_pin, can_promote, connection_status, user_admin, ADMIN_CACHE
+from EvilBot.helper_extra.admin_rights import user_can_pin, user_can_promote, user_can_changeinfo
 
-from EvilBot.modules.helper_funcs.extraction import (
-    extract_user,
-    extract_user_and_text
-)
+from EvilBot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
 from EvilBot.modules.log_channel import loggable
 from EvilBot.modules.helper_funcs.alternate import send_message
 from EvilBot.modules.helper_funcs.alternate import typing_action
@@ -28,9 +14,6 @@ from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
-
-
-
 
 @run_async
 @connection_status
@@ -53,28 +36,26 @@ def promote(update: Update, context: CallbackContext) -> str:
         and user.id not in DRAGONS
     ):
         message.reply_text("¡No tienes los permisos necesarios para hacer eso!")
-        return
+        return ""
 
     user_id = extract_user(message, args)
 
     if not user_id:
-        message.reply_text(
-            "No parece que se esté refiriendo a un usuario o el ID especificado es incorrecto ..."
-        )
-        return
+        message.reply_text("No parece que se esté refiriendo a un usuario o el ID especificado es incorrecto ...")
+        return ""
 
     try:
         user_member = chat.get_member(user_id)
     except:
-        return
+        return ""
 
     if user_member.status == "administrator" or user_member.status == "creator":
         message.reply_text("¿Cómo se supone que debo promover a alguien que ya es administrador?")
-        return
+        return ""
 
     if user_id == bot.id:
         message.reply_text("¡No puedo promoverme! Consiga un administrador para que lo haga por mí.")
-        return
+        return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
     bot_member = chat.get_member(bot.id)
@@ -97,7 +78,7 @@ def promote(update: Update, context: CallbackContext) -> str:
             message.reply_text("No puedo promover a alguien que no esté en el grupo.")
         else:
             message.reply_text("Se produjo un error durante la promoción")
-        return
+        return ""
 
     bot.sendMessage(
         chat.id,
@@ -107,7 +88,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
-        f"USER PROMOVIDO CON EXITO\n"
+        f"USUARIO PROMOVIDO CON EXITO\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
         f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
     )
@@ -139,24 +120,24 @@ def demote(update: Update, context: CallbackContext) -> str:
         message.reply_text(
             "No parece que se esté refiriendo a un usuario o el ID especificado es incorrecto ..."
         )
-        return
+        return ""
 
     try:
         user_member = chat.get_member(user_id)
     except:
-        return
+        return ""
 
     if user_member.status == "creator":
         message.reply_text("Esta persona CREÓ el chat, ¿cómo la removeria?")
-        return
+        return ""
 
     if not user_member.status == "administrator":
         message.reply_text("¡No se puede remover lo que no se promovió!")
-        return
+        return ""
 
     if user_id == bot.id:
         message.reply_text("¡No puedo removerme! Consiga un administrador para que lo haga por mí.")
-        return
+        return ""
 
     try:
         bot.promoteChatMember(
@@ -191,7 +172,7 @@ def demote(update: Update, context: CallbackContext) -> str:
             "No se pudo remover. Es posible que no sea administrador o que el estado de administrador fue designado por otro"
             " user, ¡así que no puedo actuar sobre ellos!"
         )
-        return
+        return ""
 
 
 @run_async
@@ -221,35 +202,35 @@ def set_title(update: Update, context: CallbackContext):
     try:
         user_member = chat.get_member(user_id)
     except:
-        return
+        return ""
 
     if not user_id:
         message.reply_text(
             "No parece que se esté refiriendo a un usuario o el ID especificado es incorrecto ..."
         )
-        return
+        return ""
 
     if user_member.status == "creator":
         message.reply_text(
             "Esta persona CREÓ el chat, ¿cómo puedo configurar un título personalizado para él?"
         )
-        return
+        return ""
 
     if user_member.status != "administrator":
         message.reply_text(
             "¡No se puede establecer un título para los que no son administradores!\n¡Promuévelos primero para establecer un título personalizado!"
         )
-        return
+        return ""
 
     if user_id == bot.id:
         message.reply_text(
             "¡No puedo establecer mi propio título! Haz que el que me hizo administrador lo haga por mí."
         )
-        return
+        return ""
 
     if not title:
         message.reply_text("¡Establecer un título en blanco no hace nada!")
-        return
+        return ""
 
     if len(title) > 16:
         message.reply_text(
@@ -281,7 +262,7 @@ def setchatpic(update, context):
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
         msg.reply_text("¡Te falta el derecho a cambiar la información del grupo!")
-        return
+        return ""
 
     if msg.reply_to_message:
         if msg.reply_to_message.photo:
@@ -290,7 +271,7 @@ def setchatpic(update, context):
             pic_id = msg.reply_to_message.document.file_id
         else:
             msg.reply_text("¡Solo puedes configurar alguna foto como imagen de chat!")
-            return
+            return ""
         dlmsg = msg.reply_text("Just a sec...")
         tpic = context.bot.get_file(pic_id)
         tpic.download("gpic.png")
@@ -319,13 +300,13 @@ def rmchatpic(update, context):
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
         msg.reply_text("No tienes suficientes derechos para eliminar la foto de grupo")
-        return
+        return ""
     try:
         context.bot.delete_chat_photo(int(chat.id))
         msg.reply_text("¡La foto de perfil del chat se eliminó correctamente!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
-        return
+        return ""
 
 
 @run_async
@@ -340,12 +321,12 @@ def setchat_title(update, context):
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
         msg.reply_text("¡No tienes suficientes derechos para cambiar la información del chat!")
-        return
+        return ""
 
     title = " ".join(args)
     if not title:
         msg.reply_text("¡Ingrese un poco de texto para establecer un nuevo título en su chat!")
-        return
+        return ""
 
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
@@ -355,7 +336,7 @@ def setchat_title(update, context):
         )
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
-        return
+        return ""
 
 
 @run_async
@@ -420,7 +401,7 @@ def set_desc(update, context):
 
 
 def __chat_settings__(chat_id, user_id):
-    return "Tu estas *admin*: `{}`".format(
+    return "Tu eres *admin*: `{}`".format(
         dispatcher.bot.get_chat_member(chat_id, user_id).status
         in ("administrator", "creator")
     )
@@ -534,7 +515,7 @@ def adminlist(update, context):
 
     if update.effective_message.chat.type == "private":
         send_message(update.effective_message, "Este comando solo funciona en grupos.")
-        return
+        return ""
 
     chat = update.effective_chat
     chat_id = update.effective_chat.id
@@ -635,7 +616,7 @@ def adminlist(update, context):
     try:
         msg.edit_text(text, parse_mode=ParseMode.HTML)
     except BadRequest:  # if original message is deleted
-        return
+        return ""
 
 
 __help__ = """
@@ -668,7 +649,7 @@ y Se abre automáticamente a las 6 am (IST) para prevenir el spam nocturno.
 ⚠️ `Leer desde arriba`
 """
 
-__mod_name__ = "Administradores"
+__mod_name__ = "Admin"
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
 
