@@ -337,30 +337,115 @@ def invite(update: Update, context: CallbackContext):
 @run_async
 @connection_status
 def adminlist(update: Update, context: CallbackContext):
+        chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    args = context.args
     bot = context.bot
-    chat = update.effective_chat
-    user = update.effective_user
 
-    chat_id = chat.id
-    update_chat_title = chat.title
-    message_chat_title = update.effective_message.chat.title
+    if update.effective_message.chat.type == "private":
+        send_message(update.effective_message, "This command only works in Groups.")
+        return
+
+    chat = update.effective_chat
+    chat_id = update.effective_chat.id
+    chat_name = update.effective_message.chat.title
+
+    try:
+        msg = update.effective_message.reply_text(
+            "Fetching group admins...", parse_mode=ParseMode.HTML
+        )
+    except BadRequest:
+        msg = update.effective_message.reply_text(
+            "Fetching group admins...", quote=False, parse_mode=ParseMode.HTML
+        )
 
     administrators = bot.getChatAdministrators(chat_id)
+    text = "Admins in <b>{}</b>:".format(html.escape(update.effective_chat.title))
 
-    if update_chat_title == message_chat_title:
-        chat_name = "this chat"
-    else:
-        chat_name = update_chat_title
-
-    text = f"Administradores en *{chat_name}*:"
+    bot_admin_list = []
 
     for admin in administrators:
         user = admin.user
-        name = f"[{user.first_name + (user.last_name or '')}](tg://user?id={user.id})"
-        text += f"\n - {name}"
+        status = admin.status
+        custom_title = admin.custom_title
 
-    update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
+        if user.first_name == "":
+            name = "☠ Deleted Account"
+        else:
+            name = "{}".format(
+                mention_html(
+                    user.id, html.escape(user.first_name + " " + (user.last_name or ""))
+                )
+            )
 
+        if user.is_bot:
+            bot_admin_list.append(name)
+            administrators.remove(admin)
+            continue
+
+        # if user.username:
+        #    name = escape_markdown("@" + user.username)
+        if status == "creator":
+            text += "\n 👑 Creator:"
+            text += "\n<code> • </code>{}\n".format(name)
+
+            if custom_title:
+                text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
+
+    text += "\n🔱 Admins:"
+
+    custom_admin_list = {}
+    normal_admin_list = []
+
+    for admin in administrators:
+        user = admin.user
+        status = admin.status
+        custom_title = admin.custom_title
+
+        if user.first_name == "":
+            name = "☠ Deleted Account"
+        else:
+            name = "{}".format(
+                mention_html(
+                    user.id, html.escape(user.first_name + " " + (user.last_name or ""))
+                )
+            )
+        # if user.username:
+        #    name = escape_markdown("@" + user.username)
+        if status == "administrator":
+            if custom_title:
+                try:
+                    custom_admin_list[custom_title].append(name)
+                except KeyError:
+                    custom_admin_list.update({custom_title: [name]})
+            else:
+                normal_admin_list.append(name)
+
+    for admin in normal_admin_list:
+        text += "\n<code> • </code>{}".format(admin)
+
+    for admin_group in custom_admin_list.copy():
+        if len(custom_admin_list[admin_group]) == 1:
+            text += "\n<code> • </code>{} | <code>{}</code>".format(
+                custom_admin_list[admin_group][0], html.escape(admin_group)
+            )
+            custom_admin_list.pop(admin_group)
+
+    text += "\n"
+    for admin_group, value in custom_admin_list.items():
+        text += "\n🚨 <code>{}</code>".format(admin_group)
+        for admin in value:
+            text += "\n<code> • </code>{}".format(admin)
+        text += "\n"
+
+    text += "\n🤖 Bots:"
+    for each_bot in bot_admin_list:
+        text += "\n<code> • </code>{}".format(each_bot)
+
+    try:
+        msg.edit_text(text, parse_mode=ParseMode.HTML)
+    except BadRequest:  # if original message is deleted
+        return
 
 def __chat_settings__(chat_id, user_id):
     return "Eres *admin*: `{}`".format(
