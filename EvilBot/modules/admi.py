@@ -377,6 +377,7 @@ __help__ = """
  • `/promote`*:* Promueve el usuario al que respondió.
  • `/demote`*:* Rebaja al usuario al que respondió.
  • `/settitle`*:* Establece un título personalizado para un administrador que promovió el bot.
+ • `/reload`*:* Forzar la actualización de la lista de administradores
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"],
@@ -394,7 +395,7 @@ DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
 SET_TITLE_HANDLER = CommandHandler("settitle", set_title)
 
 ADMIN_REFRESH_HANDLER = CommandHandler(
-    "admincache", refresh_admin, filters=Filters.group
+    "reload", refresh_admin, filters=Filters.group
 )
 
 dispatcher.add_handler(ADMINLIST_HANDLER)
@@ -407,7 +408,7 @@ dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
 __mod_name__ = "Admin"
-__command_list__ = ["adminlist", "admins", "invitelink", "promote", "demote", "admincache"]
+__command_list__ = ["adminlist", "admins", "invitelink", "promote", "demote", "reload"]
 __handlers__ = [
     ADMINLIST_HANDLER, PIN_HANDLER, UNPIN_HANDLER, INVITE_HANDLER,
     PROMOTE_HANDLER, DEMOTE_HANDLER, SET_TITLE_HANDLER, ADMIN_REFRESH_HANDLER
