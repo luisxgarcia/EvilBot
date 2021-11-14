@@ -22,7 +22,7 @@ import emoji
 import requests
 
 url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
-from google_trans_new import google_translator
+from googletrans import Translator
 from pyrogram import filters
 
 from EvilBot.helper_extra.aichat import add_chat, get_session, remove_chat
