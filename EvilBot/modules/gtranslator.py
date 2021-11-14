@@ -26,7 +26,7 @@ def totranslate(update: Update, context: CallbackContext):
             try:
                 source_lang = args[1].split(None, 1)[0]
             except (IndexError, AttributeError):
-                source_lang = "en"
+                source_lang = "es"
 
         else:
             args = update.effective_message.text.split(None, 2)
@@ -65,13 +65,13 @@ def totranslate(update: Update, context: CallbackContext):
             detection = trl.detect(text)
             trans_str = trl.translate(text, lang_tgt=dest_lang)
             return message.reply_text(
-                f"Translated from `{detection[0]}` to `{dest_lang}`:\n`{trans_str}`",
+                f"Traducido del `{detection[0]}` al `{dest_lang}`:\n`{trans_str}`",
                 parse_mode=ParseMode.MARKDOWN,
             )
         else:
             trans_str = trl.translate(text, lang_tgt=dest_lang, lang_src=source_lang)
             message.reply_text(
-                f"Translated from `{source_lang}` to `{dest_lang}`:\n`{trans_str}`",
+                f"Traducido del `{source_lang}` al `{dest_lang}`:\n`{trans_str}`",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -91,7 +91,7 @@ def totranslate(update: Update, context: CallbackContext):
 
 
 __help__ = """
- ❍ /tr or /tl (language code) responde a un mensaje largo
+ ❍ /tr or /tl (language code) responde a un mensaje.
 *Example:* 
  ❍ /tr es*:* traduce algo al español
  ❍ /tr es-en*:* traduce español a inlges
