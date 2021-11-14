@@ -29,7 +29,7 @@ from EvilBot.helper_extra.aichat import add_chat, get_session, remove_chat
 from EvilBot.pyrogramee.pluginshelper import admins_only, edit_or_reply
 from EvilBot import pbot as evil
 
-translator = google_translator()
+translator = Translator()
 
 
 def extract_emojis(s):
