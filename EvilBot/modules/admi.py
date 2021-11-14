@@ -463,6 +463,12 @@ __help__ = """
  • `/demote`*:* Rebaja al usuario al que respondió.
  • `/settitle`*:* Establece un título personalizado para un administrador que promovió el bot.
  • `/reload`*:* Forzar la actualización de la lista de administradores
+*Zombies:*
+ • /zombies*:* escanea las cuentas eliminadas
+ • /zombies clean*:* limpia las cuentas eliminadas
+ 
+*Note:* Night Mode chats get Automatically closed at 12 am(IST)
+and Automatically openned at 6 am(IST) To Prevent Night Spams.
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["staff", "admins"],
