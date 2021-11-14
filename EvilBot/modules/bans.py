@@ -108,7 +108,7 @@ def ban(update: Update, context: CallbackContext) -> str:
             message.delete()
             return log
 
-        bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, "CAACAgEAAxkBAAICL2GIS1rV-HBllEQYxBcSjh4XnpBJAAIDAQACPF8xRmEkSUQJNOg6IgQ")  # banhammer marie sticker
         reply = (
             f"<code>❕</code><b>Evento Ban</b>\n"
             f"<code> </code><b>•  Usuario:</b> {mention_html(member.user.id, html.escape(member.user.first_name))}"
@@ -198,7 +198,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
 
     try:
         chat.kick_member(user_id, until_date=bantime)
-        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, "CAACAgEAAxkBAAICL2GIS1rV-HBllEQYxBcSjh4XnpBJAAIDAQACPF8xRmEkSUQJNOg6IgQ")  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
             f"Usuario Baneado! {mention_html(member.user.id, html.escape(member.user.first_name))} "
@@ -265,7 +265,7 @@ def punch(update: Update, context: CallbackContext) -> str:
 
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, "CAACAgEAAxkBAAICL2GIS1rV-HBllEQYxBcSjh4XnpBJAAIDAQACPF8xRmEkSUQJNOg6IgQ" )  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
             f"Eliminado! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
