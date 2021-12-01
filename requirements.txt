@@ -28,7 +28,7 @@ coffeehouse==2.2.4
 regex
 bleach
 git+https://github.com/starry69/python-markdown2.git
-git+https://github.com/luisxgarcia/google
+git+https://github.com/luisxgarcia/google/tree/main/google-trans-base
 wikipedia
 telethon
 telegraph
