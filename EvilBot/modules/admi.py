@@ -410,8 +410,18 @@ def adminlist(update: Update, context: CallbackContext):
         #            user.id, html.escape(user.first_name + " " + (user.last_name or ""))
         #        )
         #    )
-        if user.username:
-            name = escape_markdown("@" + user.username)
+        if user.username == "":
+            name = "{}".format(
+                mention_html(
+                    user.id, html.escape(user.first_name + " "+ (user.last_name or ""))
+                )
+            )
+        else:
+            name = "{}".format(
+                mention_html(
+                    user.id, html.escape("@" + user.username + " ")
+                )
+            )
         if status == "administrator":
             if custom_title:
                 try:
