@@ -402,16 +402,16 @@ def adminlist(update: Update, context: CallbackContext):
         status = admin.status
         custom_title = admin.custom_title
 
-        if user.first_name == "":
-            name = "☠ Deleted Account"
-        else:
-            name = "{}".format(
-                mention_html(
-                    user.id, html.escape(user.first_name + " " + (user.last_name or ""))
+        #if user.first_name == "":
+        #    name = "☠ Deleted Account"
+        #else:
+        #    name = "{}".format(
+        #        mention_html(
+        #            user.id, html.escape(user.first_name + " " + (user.last_name or ""))
                 )
             )
-        # if user.username:
-        #    name = escape_markdown("@" + user.username)
+        if user.username:
+            name = escape_markdown("@" + user.username)
         if status == "administrator":
             if custom_title:
                 try:
@@ -426,7 +426,7 @@ def adminlist(update: Update, context: CallbackContext):
 
     for admin_group in custom_admin_list.copy():
         if len(custom_admin_list[admin_group]) == 1:
-            text += "\n<code> • </code>{} | <code>{}</code>".format(
+            text += "\n<code> • </code>{} > <code>{}</code>".format(
                 custom_admin_list[admin_group][0], html.escape(admin_group)
             )
             custom_admin_list.pop(admin_group)
