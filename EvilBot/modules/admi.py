@@ -387,12 +387,12 @@ def adminlist(update: Update, context: CallbackContext):
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
             text += "\n 👑 Creador:"
-            text += "\n<code> • </code>{}\n".format(name)
+            text += "\n<code> └ </code>{}\n".format(name)
 
             if custom_title:
-                text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
+                text += f"<code> └ {html.escape(custom_title)}</code>\n"
 
-    text += "\n🔱 Admins:"
+    text += "\n 🔱 Admins:"
 
     custom_admin_list = {}
     normal_admin_list = []
@@ -402,14 +402,6 @@ def adminlist(update: Update, context: CallbackContext):
         status = admin.status
         custom_title = admin.custom_title
 
-        #if user.first_name == "":
-        #    name = "☠ Deleted Account"
-        #else:
-        #    name = "{}".format(
-        #        mention_html(
-        #            user.id, html.escape(user.first_name + " " + (user.last_name or ""))
-        #        )
-        #    )
         if user.username == "":
             name = "{}".format(
                 mention_html(
@@ -436,19 +428,19 @@ def adminlist(update: Update, context: CallbackContext):
 
     for admin_group in custom_admin_list.copy():
         if len(custom_admin_list[admin_group]) == 1:
-            text += "\n<code> • </code>{} > <code>{}</code>".format(
+            text += "\n<code> ├ </code>{} » <code>{}</code>".format(
                 custom_admin_list[admin_group][0], html.escape(admin_group)
             )
             custom_admin_list.pop(admin_group)
 
     text += "\n"
     for admin_group, value in custom_admin_list.items():
-        text += "\n🚨 <code>{}</code>".format(admin_group)
+        text += "\n 🚨 <code>{}</code>".format(admin_group)
         for admin in value:
-            text += "\n<code> • </code>{}".format(admin)
+            text += "\n<code> ├ </code>{}".format(admin)
         text += "\n"
 
-    text += "\n🤖 Bots:"
+    text += "\n 🤖 Bots:"
     for each_bot in bot_admin_list:
         text += "\n<code> • </code>{}".format(each_bot)
 
