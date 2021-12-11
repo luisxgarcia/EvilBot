@@ -421,7 +421,7 @@ def new_member(update: Update, context: CallbackContext):
                             [
                                 {
                                     InlineKeyboardButton(
-                                        text="Si, soy SWIFTIE",
+                                        text="✅ Si, soy SWIFTIE 👸🏻",
                                         callback_data=f"user_join_({new_mem.id})",
                                     )
                                 }
