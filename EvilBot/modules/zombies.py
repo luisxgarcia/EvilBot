@@ -80,10 +80,62 @@ async def zombies(event):
     if not await is_administrator(user_id=event.from_id, message=event):
         await event.respond("You're Not An Admin!")
         return
+    else:
+        cleaning_zombies = await event.respond("Cleaning Zombies...")
+    del_u = 0
+    del_a = 0
+
+    async for user in event.client.iter_participants(event.chat_id):
+        if user.deleted:
+            try:
+                await event.client(
+                    EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS)
+                )
+            except ChatAdminRequiredError:
+                await cleaning_zombies.edit("I Don't Have Ban Rights In This Group.")
+                return
+            except UserAdminInvalidError:
+                del_u -= 1
+                del_a += 1
+            await event.client(EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS))
+            del_u += 1
+
+    if del_u > 0:
+        del_status = f"Cleaned `{del_u}` Zombies"
+
+    if del_a > 0:
+        del_status = f"Cleaned `{del_u}` Zombies \
+        \n`{del_a}` Zombie Admin Accounts Are Not Removed!"
 
     if not admin and not creator:
         await event.respond("I Am Not An Admin Here!")
         return
+    else:
+        cleaning_zombies = await event.respond("Cleaning Zombies...")
+    del_u = 0
+    del_a = 0
+
+    async for user in event.client.iter_participants(event.chat_id):
+        if user.deleted:
+            try:
+                await event.client(
+                    EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS)
+                )
+            except ChatAdminRequiredError:
+                await cleaning_zombies.edit("I Don't Have Ban Rights In This Group.")
+                return
+            except UserAdminInvalidError:
+                del_u -= 1
+                del_a += 1
+            await event.client(EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS))
+            del_u += 1
+
+    if del_u > 0:
+        del_status = f"Cleaned `{del_u}` Zombies"
+
+    if del_a > 0:
+        del_status = f"Cleaned `{del_u}` Zombies \
+        \n`{del_a}` Zombie Admin Accounts Are Not Removed!"
 
     cleaning_zombies = await event.respond("Cleaning Zombies...")
     del_u = 0
