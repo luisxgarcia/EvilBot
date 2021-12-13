@@ -416,12 +416,12 @@ def new_member(update: Update, context: CallbackContext):
                         )
                     new_join_mem = f'<a href="tg://user?id={user.id}">{html.escape(new_mem.first_name)}</a>'
                     message = msg.reply_text(
-                        f"{new_join_mem}, haz clic en el botón de abajo para demostrar que eres swiftie.\nTienes 120 segundos.",
+                        f"{new_join_mem}, haz clic en el botón de abajo para demostrar que eres swiftie.\nTIENES 120 SEGUNDOS.",
                         reply_markup=InlineKeyboardMarkup(
                             [
                                 {
                                     InlineKeyboardButton(
-                                        text="✅ Si, soy SWIFTIE 👸🏻",
+                                        text="✅ SI, SOY SWIFTIE 👸🏼",
                                         callback_data=f"user_join_({new_mem.id})",
                                     )
                                 }
