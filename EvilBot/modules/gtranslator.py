@@ -1,114 +1,25 @@
-from emoji import UNICODE_EMOJI
-from google_trans_new import LANGUAGES, google_translator
-from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
 
-from EvilBot import dispatcher
+from telegram import Message, Update, Bot, User
+from telegram.ext import Filters, MessageHandler, run_async
+
+from requests import get
+
 from EvilBot.modules.disable import DisableAbleCommandHandler
+from EvilBot import dispatcher
 
+base_url = 'https://translate.yandex.net/api/v1.5/tr.json/translate'
+api_key = 'trnsl.1.1.20180603T023816Z.763b39e3388b46d6.aa9abf45baceb438c96bb1593ce58199cc66c4f1'
 
 @run_async
-def totranslate(update: Update, context: CallbackContext):
-    message = update.effective_message
-    problem_lang_code = []
-    for key in LANGUAGES:
-        if "-" in key:
-            problem_lang_code.append(key)
+def translate(bot: Bot, update: Update):
+  message = update.effective_message
+  text = message.reply_to_message.text
+  translation = get(f'{base_url}?key={api_key}&text={text}&lang=en').json()
+  
+  reply_text = f"Language: {translation['lang']}\nText: {translation['text'][0]}"
+  
+  message.reply_to_message.reply_text(reply_text)
 
-    try:
-        if message.reply_to_message:
-            args = update.effective_message.text.split(None, 1)
-            if message.reply_to_message.text:
-                text = message.reply_to_message.text
-            elif message.reply_to_message.caption:
-                text = message.reply_to_message.caption
+translate_handler = DisableAbleCommandHandler("tl", translate)
 
-            try:
-                source_lang = args[1].split(None, 1)[0]
-            except (IndexError, AttributeError):
-                source_lang = "es"
-
-        else:
-            args = update.effective_message.text.split(None, 2)
-            text = args[2]
-            source_lang = args[1]
-
-        if source_lang.count("-") == 2:
-            for lang in problem_lang_code:
-                if lang in source_lang:
-                    if source_lang.startswith(lang):
-                        dest_lang = source_lang.rsplit("-", 1)[1]
-                        source_lang = source_lang.rsplit("-", 1)[0]
-                    else:
-                        dest_lang = source_lang.split("-", 1)[1]
-                        source_lang = source_lang.split("-", 1)[0]
-        elif source_lang.count("-") == 1:
-            for lang in problem_lang_code:
-                if lang in source_lang:
-                    dest_lang = source_lang
-                    source_lang = None
-                    break
-            if dest_lang is None:
-                dest_lang = source_lang.split("-")[1]
-                source_lang = source_lang.split("-")[0]
-        else:
-            dest_lang = source_lang
-            source_lang = None
-
-        exclude_list = UNICODE_EMOJI.keys()
-        for emoji in exclude_list:
-            if emoji in text:
-                text = text.replace(emoji, "")
-
-        trl = google_translator()
-        if source_lang is None:
-            detection = trl.detect(text)
-            trans_str = trl.translate(text, lang_tgt=dest_lang)
-            return message.reply_text(
-                f"Traducido del `{detection[0]}` al `{dest_lang}`:\n`{trans_str}`",
-                parse_mode=ParseMode.MARKDOWN,
-            )
-        else:
-            trans_str = trl.translate(text, lang_tgt=dest_lang, lang_src=source_lang)
-            message.reply_text(
-                f"Traducido del `{source_lang}` al `{dest_lang}`:\n`{trans_str}`",
-                parse_mode=ParseMode.MARKDOWN,
-            )
-
-    except IndexError:
-        update.effective_message.reply_text(
-            "Responder mensajes o escribir mensajes en otros idiomas para traducirlos al idioma deseado\n\n"
-            "*Ejemplo:* `/tr en-ml` Para traducir del inglés al Malayalam\n"
-            "*O use:* `/tr ml` Para la detección automática y su traducción al malayalam.\n\n"
-            "*Lista de códigos de idioma:*\n\n`af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,ml,mn,mr,ms,mt,my,ne,nl,no,ny,pa,pl,ps,pt,ro,ru,sd,si,sk,sl,sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`",
-            parse_mode="markdown",
-            disable_web_page_preview=True)
-    except ValueError:
-        update.effective_message.reply_text(
-            "No se encuentra el idioma deseado!")
-    else:
-        return
-
-
-__help__ = """
- ❍ /tr or /tl (language code) responde a un mensaje.
-*Example:* 
- ❍ /tr es*:* traduce algo al español
- ❍ /tr es-en*:* traduce español a inlges
-
-*Language Codes*
-`af,am,ar,az,be,bg,bn,bs,ca,ceb,co,cs,cy,da,de,el,en,eo,es,
-et,eu,fa,fi,fr,fy,ga,gd,gl,gu,ha,haw,hi,hmn,hr,ht,hu,hy,
-id,ig,is,it,iw,ja,jw,ka,kk,km,kn,ko,ku,ky,la,lb,lo,lt,lv,mg,mi,mk,
-ml,mn,mr,ms,mt,my,ne,nl,no,ny,pa,pl,ps,pt,ro,ru,sd,si,sk,sl,
-sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,
-vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
-"""
-
-TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate)
-
-dispatcher.add_handler(TRANSLATE_HANDLER)
-
-__mod_name__ = "Traductor"
-__command_list__ = ["tr", "tl"]
-__handlers__ = [TRANSLATE_HANDLER]
+dispatcher.add_handler(translate_handler)
