@@ -61,7 +61,7 @@ lyricsgenius
 tswift
 python-arq
 envparse
-
+gTTS
 #profanity (Credits to Julia)
 better_profanity
 textblob 
