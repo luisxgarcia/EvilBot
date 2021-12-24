@@ -67,4 +67,3 @@ better_profanity
 textblob 
 nudepy
 motor
-tqdm 4.7.6
